@@ -1,7 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"github_actions_math/mathfuncs"
+)
 
 func main() {
-	fmt.Println("hello go!!")
+	// 100 + 2 = ?
+	fmt.Println("100 + 2 =", mathfuncs.Add(100, 2))
+	// 100 ÷ 2 = ?
+	resp, _ := mathfuncs.Div(100, 2)
+	fmt.Println("100 ÷ 2 =", resp)
 }
