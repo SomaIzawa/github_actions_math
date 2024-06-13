@@ -41,8 +41,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: sample
-        release_name: sample
+        tag_name: ${{ env.TAG_NAME }}
+        release_name: ${{ env.RELEASE_NAME }}
         body: |
           Changes in this Release
           - First Change
