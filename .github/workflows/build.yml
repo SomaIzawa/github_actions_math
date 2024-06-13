@@ -22,19 +22,10 @@ jobs:
         go-version: '1.22.3'
 
     - name: Build
-      run: go build main.go
-
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: go build -o main main.go # ビルドコマンドに -o オプションを追加して、出力ファイル名を main に指定します
+  
+    - name: Upload release artifact
+      uses: actions/upload-artifact@v3 # ビルド結果をアーティファクトとしてアップロードします
       with:
-        tag_name: test
-        release_name: Release test
-        body: |
-          Changes in this Release
-          - First Change
-          - Second Change
-        draft: false
-        prerelease: false
+        name: main # アーティファクトの名前
+        path: main # ビルド結果のパス
