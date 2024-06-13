@@ -35,8 +35,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: test ${{ github.event.commits.timestamp }}
-        release_name: release ${{ github.event.commits.timestamp }}
+        tag_name: "test ${{ github.event.commits.timestamp }}"
+        release_name: ${{ github.event.commits.timestamp }}
         body: |
           Changes in this Release
           - First Change
