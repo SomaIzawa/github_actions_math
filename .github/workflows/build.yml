@@ -29,20 +29,14 @@ jobs:
       with:
         name: main # アーティファクトの名前
         path: main # ビルド結果のパス
-    - name: Set release variables
-      id: set_release_vars
-      run: |
-        now=$(date +%Y-%m-%d)
-        echo "TAG_NAME=release-${now}" >> $GITHUB_OUTPUT
-        echo "RELEASE_NAME=Release ${now}" >> $GITHUB_OUTPUT
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ env.TAG_NAME }}
-        release_name: ${{ env.RELEASE_NAME }}
+        tag_name: test ${{ github.event.commits.timestamp }}
+        release_name: release ${{ github.event.commits.timestamp }}
         body: |
           Changes in this Release
           - First Change
