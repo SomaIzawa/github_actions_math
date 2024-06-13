@@ -30,8 +30,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ github.event.ref.tag }}
-        release_name: Release ${{ github.event.ref.tag }}
+        tag_name: test
+        release_name: Release test
         body: |
           Changes in this Release
           - First Change
