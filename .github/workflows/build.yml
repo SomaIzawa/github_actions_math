@@ -12,8 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      actions: read
-      contents: read
+      contents: write
     steps:
     - uses: actions/checkout@v4 # リポジトリからソースコードを取得します
 
